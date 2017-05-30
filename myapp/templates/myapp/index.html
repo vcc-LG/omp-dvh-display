@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends 'myapp/base.html' %}
 
-DVH dump analyser
+{% block content %}
 
-<form method="post">
-  {% csrf_token %}
+        <h1>Paste DVH data</h1>
 
-<textarea rows="40" name="dvhdata" cols="50" placeholder="Paste DVH dump here..."></textarea>
-<hr/>
-<input type="submit" value="Submit">
-</form>
-
-</body>
-</html>
+        <form method="POST" class="post-form">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Submit</button>
+        </form>
+{% endblock %}

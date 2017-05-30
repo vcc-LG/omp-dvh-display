@@ -1,0 +1,117 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+
+<h1>Results</h1>
+
+<hr/>
+
+<div class="row">
+  <div class="col-sm-5">
+    <div class="row">
+      <div class="col"><h4>Patient ID: {{ dvh_data.patient_ID }}</h4></div>
+      <div class="col"><h4>Patient name: {{ dvh_data.patient_name }}</h4></div>
+    </div>
+  </div>
+  <div class="col-sm-5">
+    <div class="row">
+      <div class="col"><h4>Case label: {{ dvh_data.case_label }}</h4></div>
+      <div class="col"><h4>Plan name: {{ dvh_data.plan_name }}</h4></div>
+    </div>
+  </div>
+</div>
+
+
+<p>
+
+</p>
+
+<h1>Target</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>VOI</th>
+      <th>DVH</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>HR-CTV</td>
+      <td>D90</td>
+      <td>{{ dvh_data.Cervix.D90 }} Gy</td>
+    </tr>
+    <tr>
+      <td>HR-CTV</td>
+      <td>V100</td>
+      <td>{{ dvh_data.Cervix.V100 }} %</td>
+    </tr>
+    <tr>
+      <td>HR-CTV</td>
+      <td>V67</td>
+      <td>{{ dvh_data.Cervix.V67 }} %</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h1>OARs</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>VOI</th>
+      <th>DVH</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bladder</td>
+      <td>D2cc</td>
+      <td>{{ dvh_data.Bladder.D2cc }} Gy</td>
+    </tr>
+    <tr>
+      <td>Rectum</td>
+      <td>D2cc</td>
+      <td>{{ dvh_data.Rectum.D2cc }} Gy</td>
+    </tr>
+    <tr>
+      <td>Bowel</td>
+      <td>D2cc</td>
+      <td>{{ dvh_data.Bowel.D2cc }} Gy</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>Volumes</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>VOI</th>
+      <th>Volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>HR-CTV</td>
+      <td>{{ dvh_data.Cervix.volume_cc }} cc</td>
+    </tr>
+    <tr>
+      <td>Bladder</td>
+      <td>{{ dvh_data.Bladder.volume_cc }} cc</td>
+    </tr>
+    <tr>
+      <td>Rectum</td>
+      <td>{{ dvh_data.Rectum.volume_cc }} cc</td>
+    </tr>
+    <tr>
+      <td>Bowel</td>
+      <td>{{ dvh_data.Bowel.volume_cc }} cc</td>
+    </tr>
+  </tbody>
+</table>
+
+<a href='/' class="btn btn-default" role="button">
+  <span class="glyphicon glyphicon-step-backward"></span>Back</a>
+
+{% endblock %}
